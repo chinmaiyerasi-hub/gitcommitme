@@ -1,0 +1,67 @@
+[
+  {
+    "id": "c1",
+    "name": "Jordan Sparks",
+    "age": 30,
+    "title": "Frontend Developer",
+    "location": "New York, NY",
+    "bio": "Accessibility-focused frontend dev shipping pixel-perfect React apps.",
+    "skills": ["React", "TypeScript", "CSS", "Figma"],
+    "collaborationModes": ["Pairing", "Async updates"],
+    "languages": ["TypeScript", "JavaScript", "CSS"],
+    "githubMetrics": {
+      "streak": 32,
+      "topRepo": "design-systems-lab"
+    },
+    "avatar": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "c2",
+    "name": "Priya Raman",
+    "age": 28,
+    "title": "Full-stack Engineer",
+    "location": "Austin, TX",
+    "bio": "Shipping platform APIs by day, building indie SaaS experiments by night.",
+    "skills": ["Node.js", "GraphQL", "Postgres", "React"],
+    "collaborationModes": ["Async updates", "Open source sprints"],
+    "languages": ["TypeScript", "Go", "SQL"],
+    "githubMetrics": {
+      "streak": 14,
+      "topRepo": "sprintboard"
+    },
+    "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "c3",
+    "name": "Diego Rivera",
+    "age": 33,
+    "title": "Systems Engineer",
+    "location": "Remote · GMT-5",
+    "bio": "Optimizing infra pipelines and writing docs nobody hates.",
+    "skills": ["Rust", "Terraform", "Kubernetes"],
+    "collaborationModes": ["Deep work blocks", "Open source sprints"],
+    "languages": ["Rust", "Python", "Go"],
+    "githubMetrics": {
+      "streak": 48,
+      "topRepo": "kube-scout"
+    },
+    "avatar": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "c4",
+    "name": "Mei Lin",
+    "age": 26,
+    "title": "Product Engineer",
+    "location": "Seattle, WA",
+    "bio": "Crafting delightful onboarding journeys and scalable design systems.",
+    "skills": ["Vue", "Tailwind", "UX Writing", "Product strategy"],
+    "collaborationModes": ["Pairing", "Hackathons"],
+    "languages": ["JavaScript", "Python", "Ruby"],
+    "githubMetrics": {
+      "streak": 21,
+      "topRepo": "flowkit"
+    },
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80"
+  }
+]
+

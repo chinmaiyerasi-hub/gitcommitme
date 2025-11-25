@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GitCommitMe · Merge your heart · Commit your love</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body data-connected="false">
+  <header class="hero">
+    <nav class="nav">
+      <div class="brand">
+        <span class="brand-icon">❤</span>
+        <span class="brand-name">GitCommitMe</span>
+      </div>
+      <button id="sign-in" class="ghost-btn">Connect</button>
+    </nav>
+    <div class="hero-content">
+      <p class="eyebrow">GitCommitMe</p>
+      <h1>Merge your heart · Commit your love</h1>
+      <p class="lead">
+        Find your perfect match in the tech world. Connect with developers who share your passion for code,
+        collaborate on projects, and build something beautiful together.
+      </p>
+      <div class="hero-cta">
+        <button id="start-matching" class="primary-btn">Start Matching</button>
+        <button class="secondary-btn" id="learn-more">Learn More</button>
+      </div>
+      <div id="connection-toast" class="toast" hidden></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <article>
+        <div class="feature-icon">⌘</div>
+        <h3>Skill-Based Matching</h3>
+        <p>Match with developers based on complementary or shared tech stacks.</p>
+      </article>
+      <article>
+        <div class="feature-icon"></div>
+        <h3>GitHub Integration</h3>
+        <p>Connect your GitHub to showcase contributions, repos, and languages.</p>
+      </article>
+      <article>
+        <div class="feature-icon">❤</div>
+        <h3>Dev Community</h3>
+        <p>Join a community of passionate developers looking for meaningful connections.</p>
+      </article>
+    </section>
+
+    <section class="swipe-section" id="swipe">
+      <div class="swipe-header">
+        <div>
+          <p class="eyebrow">Start Swiping</p>
+          <h2>Swipe right to like, left to pass.</h2>
+          <p class="muted">It’s playful, purposeful, and built for devs who love to collaborate.</p>
+        </div>
+        <div class="swipe-actions-inline">
+          <button id="sync-github" class="ghost-btn">Sync GitHub</button>
+          <button id="open-preferences" class="ghost-btn">Match Preferences</button>
+          <button id="open-profile" class="ghost-btn">My GitHub Snapshot</button>
+        </div>
+      </div>
+      <time id="last-synced" class="sync-meta"></time>
+
+      <div class="card-stage" aria-live="polite">
+        <article id="candidate-card" class="candidate-card hero-card empty">
+          <div class="card-photo placeholder"></div>
+          <div class="card-body">
+            <p>Connect GitHub to view curated matches.</p>
+            <button class="primary-btn connect-btn">Connect GitHub</button>
+          </div>
+        </article>
+        <div class="floating-actions">
+          <button id="pass-btn" class="swipe-btn pass" aria-label="Pass">✕</button>
+          <button id="like-btn" class="swipe-btn like" aria-label="Like">❤</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 GitCommitMe. Made with ❤ by developers, for developers.</p>
+  </footer>
+
+  <div class="modal" id="connect-modal" hidden>
+    <div class="modal-panel">
+      <button class="modal-close" data-close="connect-modal">×</button>
+      <p class="eyebrow">Connect GitHub</p>
+      <h3>Bring your code persona</h3>
+      <form id="connect-form">
+        <label for="github-username">GitHub username</label>
+        <input id="github-username" type="text" placeholder="octocat" required />
+        <label for="github-token">Personal access token (optional)</label>
+        <input id="github-token" type="password" placeholder="ghp_xxxxx" />
+        <p class="input-hint">Tokens are stored only for this browser session.</p>
+        <button class="primary-btn" type="submit">Connect &amp; Sync</button>
+        <button class="secondary-btn" type="button" id="demo-connect">Try demo profile</button>
+        <p class="input-hint" id="connect-error"></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="preferences-modal" hidden>
+    <div class="modal-panel">
+      <button class="modal-close" data-close="preferences-modal">×</button>
+      <p class="eyebrow">Match Preferences</p>
+      <h3>Tell us what sparks joy</h3>
+      <form id="preference-form">
+        <label for="skill-input">Must-have skills (max 5)</label>
+        <div class="pill-input">
+          <input id="skill-input" type="text" placeholder="e.g. React" maxlength="24" />
+          <button type="button" id="add-skill">Add</button>
+        </div>
+        <div id="skill-list" class="pill-group"></div>
+
+        <label for="mode-select">Collaboration styles (max 2)</label>
+        <div class="pill-input">
+          <select id="mode-select">
+            <option value="Pairing">Pairing</option>
+            <option value="Async updates">Async updates</option>
+            <option value="Open source sprints">Open source sprints</option>
+            <option value="Hackathons">Hackathons</option>
+            <option value="Deep work blocks">Deep work blocks</option>
+          </select>
+          <button type="button" id="add-mode">Add</button>
+        </div>
+        <div id="mode-list" class="pill-group"></div>
+        <button class="primary-btn" type="submit">Save Preferences</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="profile-modal" hidden>
+    <div class="modal-panel">
+      <button class="modal-close" data-close="profile-modal">×</button>
+      <p class="eyebrow">GitHub Snapshot</p>
+      <h3>Your dev persona</h3>
+      <div id="profile-card" class="profile-card empty">
+        <p>Connect GitHub to preview your stats.</p>
+        <button class="primary-btn connect-btn">Connect GitHub</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+
+</html>
+
